@@ -4,6 +4,8 @@ import lens from "./assets/lens.png";
 
 function App() {
   const [prompt, updatePrompt] = useState(undefined)
+  const [loading, setLoading] = useState(false)
+  const [answer, setAnswer] = useState(undefined)
 
   // We want the input to be “submitted” at the moment the user presses the “Enter” key
   const sendPrompt = async(event) =>{
