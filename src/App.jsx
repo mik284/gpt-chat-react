@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import lens from "./assets/lens.png";
 import loadingGif from "./assets/spinner.gif";
@@ -21,6 +21,12 @@ function App() {
       
     }
   }
+
+  useEffect(()=>{
+    if(prompt != null && prompt.trim()===""){
+      setAnswer(undefined)
+    }
+  }, [prompt])
   return (
     <div className="app">
       <div className="app-container">
