@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import lens from "./assets/lens.png";
+import loadingGif from "./assets/spinner.gif";
 
 function App() {
   const [prompt, updatePrompt] = useState(undefined)
@@ -12,7 +13,13 @@ function App() {
     if(event.key != "Enter"){
       return;
     }
-    console.log('prompt', prompt);
+    try {
+      setLoading(true)
+
+     
+    } catch (error) {
+      
+    }
   }
   return (
     <div className="app">
@@ -20,15 +27,16 @@ function App() {
         <div className="spotlight__wrapper">
           <input
             type="text"
+            disabled={loading}
             placeholder="Ask me Anything ..."
-            style={{ backgroundImage: `url(${lens})` }}
+            style={{ backgroundImage: loading ? `url(${loadingGif})`:`url(${lens})` }}
             className="spotlight__input"
             autoFocus
             onChange={(e)=> updatePrompt(e.target.value)}
             onKeyDown={(e)=>sendPrompt(e)}
           />
           <div className="spotlight__answer">
-            <p>Kenya is a semi-arid country and has warm and sunny climate!</p>
+            {answer && <p>{answer}</p>}
           </div>
         </div>
       </div>
