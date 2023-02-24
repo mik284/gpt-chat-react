@@ -1,4 +1,5 @@
 import "./App.css";
+import lens from "./assets/lens.png";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
             className="spotlight__input"
           />
           <div className="spotlight__answer">
-            Kenya is a semi-arid country and has warm and sunny climate!
+            <p>Kenya is a semi-arid country and has warm and sunny climate!</p>
           </div>
         </div>
       </div>
