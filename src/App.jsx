@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import lens from "./assets/lens.png";
 import loadingGif from "./assets/spinner.gif";
+import axios from 'axios'
 
 function App() {
   const [prompt, updatePrompt] = useState(undefined)
@@ -15,18 +16,26 @@ function App() {
     }
     try {
       setLoading(true)
+      const response = await axios.post('http://localhost:3000/ask', {prompt})
 
-     
+      setAnswer(response.data.message)
+      
     } catch (error) {
+      
+      console.log(error)
       
     }
   }
-
+  
   useEffect(()=>{
     if(prompt != null && prompt.trim()===""){
       setAnswer(undefined)
     }
-  }, [prompt])
+    if(answer){
+      setLoading(false)
+    }
+  }, [prompt, answer])
+  
   return (
     <div className="app">
       <div className="app-container">
