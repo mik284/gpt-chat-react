@@ -4,6 +4,14 @@ import lens from "./assets/lens.png";
 
 function App() {
   const [prompt, updatePrompt] = useState(undefined)
+
+  // We want the input to be “submitted” at the moment the user presses the “Enter” key
+  const sendPrompt = async(event) =>{
+    if(event.key != "Enter"){
+      return;
+    }
+    console.log('prompt', prompt);
+  }
   return (
     <div className="app">
       <div className="app-container">
@@ -15,6 +23,7 @@ function App() {
             className="spotlight__input"
             autoFocus
             onChange={(e)=> updatePrompt(e.target.value)}
+            onKeyDown={(e)=>sendPrompt(e)}
           />
           <div className="spotlight__answer">
             <p>Kenya is a semi-arid country and has warm and sunny climate!</p>
