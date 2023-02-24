@@ -18,7 +18,7 @@ function App() {
     }
     try {
       setLoading(true);
-      const response = await axios.post("https://chatbotapi-f6jd.onrender.com", {
+      const response = await axios.post("https://chatbotapi-f6jd.onrender.com/ask", {
         prompt,
       });
 
