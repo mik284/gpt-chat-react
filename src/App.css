@@ -71,7 +71,38 @@
   display: inline-block;
   animation: cursor-blink 1s steps(2) infinite;
 }
+.img-chat{
+  margin-top: 0;
+  /* border: 2px solid red; */
+  width: 100%;
+}
+.chatme{
+  object-fit: contain;
+}
+h4{
+   font-size: 24px;
+  line-height: 1.2;
+  font-weight: bold;
+   text-align: center;
+   text-decoration: none;
+   font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 5px;
 
+}
+
+.source{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+}
+.source p > a{
+  text-decoration: none;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(3, 129, 247);
+}
 @keyframes cursor-blink {
   0% {
     opacity: 0;
